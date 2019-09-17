@@ -6,7 +6,9 @@ import collections
 from dronekit import connect, VehicleMode, LocationGlobalRelative, LocationGlobal, Command
 import time
 import math
+import copy
 from pymavlink import mavutil
+from GPSPhoto import gpsphoto
 
 global stack_l
 global stack_r
@@ -56,7 +58,6 @@ def Extract_hands(stack_l,stack_r,no,no_l,no_r,area_img,iou_thr,frame,buffer_fps
 		(c12,c22,radius2) = stack_r.pop()
 	if ( radius1 and radius2 ):
 			
-		print("----------------INTERSECTION------------------")
 		intersecting_area = intersecting(c11,c21,radius1,c21,c22,radius2)
 		
 		total_area = math.pi*(radius2**2 + radius1**2)
@@ -65,7 +66,7 @@ def Extract_hands(stack_l,stack_r,no,no_l,no_r,area_img,iou_thr,frame,buffer_fps
 		iou = intersecting_area/total_area
 		iou_normalized = iou/area_img
 		print("iou >>",iou)
-		print("iou_norm===================================================>>>>>>>",iou_normalized)
+		print("iou_norm=>",iou_normalized)
 		flag = False
 		if ((iou > iou_thr)):
 			flag = True
@@ -74,18 +75,18 @@ def Extract_hands(stack_l,stack_r,no,no_l,no_r,area_img,iou_thr,frame,buffer_fps
 
 		if(flag):
 			cv.putText(frame,"Rescuse Detected",(100, 20), cv.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255))
-			print("FOUND TRAPPED")
+			print("*****************FOUND TRAPPED*****************")
+			print("UR MOM IS AT ",vehicle.location.global_frame )
+			cv.imwrite("lost_mom_found.jpg", saveFrame)
 			lat =  vehicle.location.global_frame.lat
 			lon = vehicle.location.global_frame.lon
-			set_gps_location( count, frame, lat, lng)
+			alt = vehicle.location.global_frame.altitude
+			photo = gpsphoto.GPSPhoto("lost_mom_found.jpg")
+			info = gpsphoto.GPSInfo((lat, lon), alt = alt)
+			photo.modGPSData(info, "lost_mom_found.jpg")
 			count +=1
 			flag = False
-		
-		
 			
-
-	
-
 	return stack_l,stack_r
 
 def hello():
@@ -130,6 +131,7 @@ def hello():
 
 	while cv.waitKey(1) < 0:
 		hasFrame, frame = cap.read()
+		saveFrame = copy.copy(frame)
 		if not hasFrame:
 			cv.waitKey()
 			break
@@ -181,7 +183,7 @@ def hello():
 					radius1 = math.floor(calculateDistance(x1,y1,x2,y2))
 					p1 = (z11,z21,radius1)
 					stack_l.append(p1)
-					cv.circle(frame,(z11,z21),radius1,(0,0,100),-1)
+					#cv.circle(frame,(z11,z21),radius1,(0,0,100),-1)
 					# cv.circle(img1,centre,radius,(255,255,255),-1)  
 					no_l = no_l + 1
 				if  ((idFrom == 6) and (idTo == 7)) or ((idFrom == 7) and (idTo == 6)):
@@ -192,7 +194,7 @@ def hello():
 					radius2 = math.floor(calculateDistance(x4,y4,x3,y3))
 					p2 = (z12,z22,radius2)
 					stack_r.append(p2)
-					cv.circle(frame,(z12,z22),radius2,(0,0,100),-1)
+					#cv.circle(frame,(z12,z22),radius2,(0,0,100),-1)
 					# cv.circle(img2,centre,radius,(255,255,255),-1)
 					no_r = no_r + 1
 				if ((((idFrom == 3) and (idTo == 4)) or ((idFrom == 4) and (idTo == 3)))) or (((idFrom == 6) and (idTo == 7)) or ((idFrom == 7) and (idTo == 6))):
@@ -203,9 +205,10 @@ def hello():
 		cv.putText(frame, '%.2fms' % (t / freq), (10, 20), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0))
 
 		cv.imshow('OpenPose using OpenCV', frame)
+		
 
 #needs interfacing to be done for now
-def set_gps_location(file_name, frame, lat, lng, altitude):
+def set_gps_location(file_name,lat, lng, altitude):
     """Adds GPS position as EXIF metadata
     Keyword arguments:
     file_name -- image file
@@ -213,8 +216,8 @@ def set_gps_location(file_name, frame, lat, lng, altitude):
     lng -- longitude (as float)
     altitude -- altitude (as float)
     """
-    file_name = str(file_name)+".jpg"
-    cv.imwrite(file_name, frame)
+    #file_name = str(file_name)+".jpg"
+    #cv.imwrite(file_name, frame)
 
     lat_deg = to_deg(lat, ["S", "N"])
     lng_deg = to_deg(lng, ["W", "E"])
