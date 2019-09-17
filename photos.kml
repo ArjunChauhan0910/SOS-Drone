@@ -1,0 +1,62 @@
+<Folder xmlns:atom="http://www.w3.org/2005/Atom" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <name>pelene / kist</name>
+    <description>&lt;h1&gt;pelene / kist&lt;/h1&gt;&lt;p&gt;Fotografirano u 2019:09:01 17:40:52 blizu Manipal Institute of Technology, Malpe - Manipal Road, Indrali, Manipal, Udupi taluku, Udupi district, Karnataka, 576104, India&lt;/p&gt;&lt;p&gt;&lt;img src="/IMG_20190901_174052088.jpg" width="400"&gt;&lt;/p&gt;</description>
+    <Point>
+      <coordinates>74.7931339722,13.350561</coordinates>
+    </Point>
+    <TimeStamp>
+      <when>2019-09-07T17:40:52</when>
+    </TimeStamp>
+  </Placemark>
+  <Placemark>
+    <name>ljulja&#269;ka / &#353;trcaljke</name>
+    <description>&lt;h1&gt;ljulja&#269;ka / &#353;trcaljke&lt;/h1&gt;&lt;p&gt;Fotografirano u 2019:09:07 12:01:46 blizu Adi Udupi, Malpe, Udupi district, Karnataka, India&lt;/p&gt;&lt;p&gt;&lt;img src="/IMG_20190907_120145822.jpg" width="400"&gt;&lt;/p&gt;</description>
+    <Point>
+      <coordinates>74.6915159722,13.349712</coordinates>
+    </Point>
+    <TimeStamp>
+      <when>2019-09-07T12:01:46</when>
+    </TimeStamp>
+  </Placemark>
+  <Placemark>
+    <name>chain_saw / lopatica</name>
+    <description>&lt;h1&gt;chain_saw / lopatica&lt;/h1&gt;&lt;p&gt;Fotografirano u 2019:09:07 12:01:31 blizu Adi Udupi, Malpe, Udupi district, Karnataka, India&lt;/p&gt;&lt;p&gt;&lt;img src="/IMG_20190907_120130065.jpg" width="400"&gt;&lt;/p&gt;</description>
+    <Point>
+      <coordinates>74.6915159722,13.349712</coordinates>
+    </Point>
+    <TimeStamp>
+      <when>2019-09-07T12:01:31</when>
+    </TimeStamp>
+  </Placemark>
+  <Placemark>
+    <name>ki&#353;obran / zidarska daska</name>
+    <description>&lt;h1&gt;ki&#353;obran / zidarska daska&lt;/h1&gt;&lt;p&gt;Fotografirano u 2019:09:01 07:11:53 blizu Mannapalla Lake, Malpe - Manipal Road, Indrali, Manipal, Udupi taluku, Udupi district, Karnataka, India&lt;/p&gt;&lt;p&gt;&lt;img src="/IMG_20190901_071152924.jpg" width="400"&gt;&lt;/p&gt;</description>
+    <Point>
+      <coordinates>74.783404,13.3414789722</coordinates>
+    </Point>
+    <TimeStamp>
+      <when>2019-09-07T07:11:53</when>
+    </TimeStamp>
+  </Placemark>
+  <Placemark>
+    <name>bath_towel / ki&#353;obran</name>
+    <description>&lt;h1&gt;bath_towel / ki&#353;obran&lt;/h1&gt;&lt;p&gt;Fotografirano u 2019:09:01 17:40:52 blizu Manipal Institute of Technology, Malpe - Manipal Road, Indrali, Manipal, Udupi taluku, Udupi district, Karnataka, 576104, India&lt;/p&gt;&lt;p&gt;&lt;img src="/IMG_20190901_174052320.jpg" width="400"&gt;&lt;/p&gt;</description>
+    <Point>
+      <coordinates>74.7931339722,13.350561</coordinates>
+    </Point>
+    <TimeStamp>
+      <when>2019-09-07T17:40:52</when>
+    </TimeStamp>
+  </Placemark>
+  <Placemark>
+    <name>ljulja&#269;ka / lanac</name>
+    <description>&lt;h1&gt;ljulja&#269;ka / lanac&lt;/h1&gt;&lt;p&gt;Fotografirano u 2019:09:07 12:01:48 blizu Adi Udupi, Malpe, Udupi district, Karnataka, India&lt;/p&gt;&lt;p&gt;&lt;img src="/IMG_20190907_120147825.jpg" width="400"&gt;&lt;/p&gt;</description>
+    <Point>
+      <coordinates>74.6915159722,13.349712</coordinates>
+    </Point>
+    <TimeStamp>
+      <when>2019-09-07T12:01:48</when>
+    </TimeStamp>
+  </Placemark>
+</Folder>
